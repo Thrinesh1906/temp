@@ -1,5 +1,3 @@
-FROM openjdk:latest
-WORKDIR /app
-COPY . .
-RUN javac App.java
-CMD ["java","App"]
+FROM nginx:alpine
+COPY . /usr/share/nginx/html
+EXPOSE 80
