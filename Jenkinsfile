@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "thrinesh1906/myapp"
+        IMAGE_NAME = "thrinesh1906/mywebapp"
         TAG = "v1"
     }
 
@@ -31,5 +31,13 @@ pipeline {
                 bat 'docker push %IMAGE_NAME%:%TAG%'
             }
         }
+
+        stage('Deploy Container') {
+            steps {
+                bat 'docker run -d -p 8082:80 %IMAGE_NAME%:%TAG%'
+            }
+        }
     }
 }
+
+
