@@ -1,4 +1,5 @@
-FROM python:3.10
+FROM openjdk:latest
 WORKDIR /app
 COPY . .
-CMD ["python","app.py"]
+RUN javac app.java
+CMD ["java","app"]
